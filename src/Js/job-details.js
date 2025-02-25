@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // ✅ Fetch Job Details
-        const response = await fetch(`http://localhost:5000/api/jobs/${jobId}`);
+        const response = await fetch(`https://jobportalapi-0gfs.onrender.com/api/jobs/${jobId}`);
         if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
         const job = await response.json();
 
@@ -71,14 +71,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             <i class="fa fa-ellipsis-v"></i>
         </button>
     </div>
-
     <!-- ✅ Top Right Save Job Button -->
     <div class="absolute top-4 right-4">
         <button id="saveJobButton" class="p-2 sm:p-1 text-gray-600 bg-gray-100 rounded-full shadow-md text-sm">
             <i class="fa fa-bookmark"></i>
         </button>
     </div>
-
     <!-- ✅ Job Title -->
     <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center sm:text-left">
         ${job.jobTitle}
@@ -109,7 +107,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     <p class="text-gray-500 text-sm mt-4">
         <span class="font-medium">${calendarIcon} Posted On:</span> ${formattedDate}
     </p>
-
     <!-- ✅ Action Buttons -->
     <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
         <button id="applyButton" class="w-full px-4 py-2 text-sm sm:text-base font-semibold text-white bg-blue-600 rounded-md shadow-md flex items-center justify-center gap-2">
@@ -135,8 +132,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             this.classList.add("bg-green-600");
         }, 2000);
     });
-    
-    
 
         // ✅ Apply for Job Function
         const applyForJob = async () => {
@@ -226,9 +221,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
             </div>
         `;
-        
-        
-
     } catch (error) {
         console.error('❌ Error:', error);
         jobDetailsContainer.innerHTML = `<p>❌ ${error.message}</p>`;
