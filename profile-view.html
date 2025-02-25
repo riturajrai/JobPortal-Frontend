@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <script defer type="module" src="src/Js/navbar.js"></script>
+
+
+    <link href="src/output.css" rel="stylesheet">
+</head>
+<style>
+
+</style>
+<body>
+    
+
+    <div id="navbar-container"></div>
+    <!-- Profile Container -->
+    <div class="profile-container bg-white shadow-lg rounded-xl max-w-lg mx-auto mt-12 p-6 md:max-w-2xl sm:max-w-full">
+        <!-- Profile Header -->
+        <div class="profile-header flex items-center space-x-4 border-b pb-4">
+            <img id="profileImage" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Avatar" 
+                class="w-16 h-16 rounded-full border-4 border-blue-400 shadow-lg">
+            <div class="user-info">
+                <h2 id="userName" class="text-xl font-bold text-gray-900">Loading...</h2>
+                <p id="userEmail" class="text-gray-600 text-sm">Loading...</p>
+                <p class="text-sm text-blue-600 font-semibold mt-1 bg-blue-100 px-2 py-1 rounded-md inline-block">0 Follow-Ups remaining</p>
+            </div>
+        </div>
+    
+        <!-- Explore Profile -->
+       <!-- Explore Profile -->
+<div class="explore-profile mt-6">
+    <h3 class="text-lg font-semibold text-gray-800 mb-3">EXPLORE PROFILE</h3>
+    <ul class="space-y-3">
+        <li>
+            <a href="./profile.html" class="flex items-center gap-2 text-gray-800">
+                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2a10 10 0 1 0 10 10A10.012 10.012 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8zm0-14a6 6 0 1 0 6 6 6.007 6.007 0 0 0-6-6z"/>
+                </svg>
+                Profile
+            </a>
+        </li>
+        <li>
+            <a href="./applied-jobs.html" class="flex items-center gap-2 text-gray-800">
+                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 6H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm-8 10H4V8h8z"/>
+                </svg>
+                Applied Jobs
+            </a>
+        </li>
+        <li>
+            <a href="./saved-jobs.html" class="flex items-center gap-2 text-gray-800">
+                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3z"/>
+                </svg>
+                Saved Jobs
+            </a>
+        </li>
+        <li>
+            <a href="./interviews.html" class="flex items-center gap-2 text-gray-800">
+                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2a10 10 0 1 0 10 10A10.012 10.012 0 0 0 12 2zm5 10h-4v4h-2v-4H7V9h4V5h2v4h4z"/>
+                </svg>
+                My Interviews
+            </a>
+        </li>
+        <li>
+            <a href="./chats.html" class="flex items-center gap-2 text-gray-800">
+                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 2H4a2 2 0 0 0-2 2v16l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
+                </svg>
+                My Chats
+            </a>
+        </li>
+        <li>
+            <a href="./jobfeed.html" class="flex items-center gap-2 text-gray-800">
+                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 4h16v2H4zM4 8h16v2H4zM4 12h16v2H4zM4 16h16v2H4z"/>
+                </svg>
+                Personalize Jobfeed
+            </a>
+        </li>
+        <li>
+            <a href="./learning-center.html" class="flex items-center gap-2 text-gray-800">
+                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5zm0 7l-10 5v2l10 5 10-5v-2z"/>
+                </svg>
+                Learning Center
+            </a>
+        </li>
+    </ul>
+</div>
+
+        <!-- Settings & Logout -->
+        <div class="settings mt-6 border-t pt-4">
+            <ul class="space-y-3">
+                <li class="flex items-center gap-2 text-gray-700 font-semibold">
+                    <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1a9 9 0 1 0 9 9 9.01 9.01 0 0 0-9-9zm0 16a7 7 0 1 1 7-7 7.007 7.007 0 0 1-7 7zm0-12a5 5 0 1 0 5 5 5.006 5.006 0 0 0-5-5z"/></svg>
+                    Settings
+                </li>
+                <li id="logout-button" class="flex items-center gap-2 text-red-600 font-bold cursor-pointer">
+                    <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M10 9V5h4v4h5v6h-5v4h-4v-4H5V9h5zm2-7a10 10 0 1 0 10 10A10.012 10.012 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"/></svg>
+                    Log Out
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    console.log("🚀 Profile Page Loaded. Fetching user data...");
+
+    const userNameElement = document.getElementById("userName");
+    const userEmailElement = document.getElementById("userEmail");
+    const profileImageElement = document.getElementById("profileImage");
+    const logoutButton = document.getElementById("logout-container");
+
+    let userData = localStorage.getItem("loggedInUser");
+
+    if (!userData) {
+        console.warn("⚠️ No user data found in LocalStorage.");
+        alert("You are not logged in!");
+        window.location.href = "login.html"; // Redirect to login page
+        return;
+    }
+
+    let user;
+    try {
+        user = JSON.parse(userData);
+        console.log("🆔 Loaded User:", user);
+
+        if (!user || !user.name || !user.email) {
+            console.warn("⚠️ User data is incomplete. Logging out...");
+            localStorage.clear();
+            window.location.href = "login.html";
+            return;
+        }
+
+        // ✅ Update profile UI
+        userNameElement.textContent = user.name || "Unknown User";
+        userEmailElement.textContent = user.email || "No Email Available";
+
+        // ✅ If profile image exists, update it
+        if (user.profileImage) {
+            profileImageElement.src = user.profileImage;
+        }
+
+    } catch (error) {
+        console.error("❌ Error parsing user data:", error);
+        localStorage.clear();
+        window.location.href = "login.html";
+    }
+
+    // ✅ Logout Functionality
+    logoutButton.addEventListener("click", async () => {
+        console.log("🔹 Logout button clicked!");
+
+        if (!user || !user.token) {
+            console.warn("⚠️ No user token found. Redirecting to login...");
+            localStorage.clear();
+            window.location.href = "login.html";
+            return;
+        }
+
+        try {
+            console.log("📡 Sending logout request to API...");
+
+            const response = await fetch("http://localhost:5000/api/logout", {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${user.token}` // ✅ Token Send करना जरूरी है
+                },
+                body: JSON.stringify({ userId: user.userId }),
+            });
+
+            console.log("📩 API Response Status:", response.status);
+            const data = await response.json();
+            console.log("📩 API Response Data:", data);
+
+            if (!response.ok) {
+                throw new Error(`Logout failed: ${data.message}`);
+            }
+
+            console.log("✅ Logout Successful");
+
+            // ✅ Local Storage Clear करें
+            localStorage.clear();
+
+            // ✅ Redirect to Login Page
+            window.location.href = "login.html";
+
+        } catch (error) {
+            console.error("🚨 Error during logout:", error);
+            alert(error.message);
+        }
+    });
+});
+    </script>
+</body>
+</html>
