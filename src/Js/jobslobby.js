@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const categoryContainer = document.getElementById("jobCategoryContainer");
     const toggleMenu = document.getElementById("jobToggleMenu");
 
-    const API_URL = "http://localhost:5000/api/jobs"; // ✅ Fixed API URL
+    const API_URL = "https://jobportalapi-0gfs.onrender.com/api/jobs"; // ✅ Fixed API URL
 
     const categories = [
         "Software Development", "Marketing", "Web Developer",
