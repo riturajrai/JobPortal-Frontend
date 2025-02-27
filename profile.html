@@ -98,7 +98,7 @@ const loadProfile = async () => {
     }
 
     try {
-        const response = await fetch(`http://localhost:5000/api/profile/${userId}`, {
+        const response = await fetch(`https://jobportalapi-0gfs.onrender.com/api/profile/${userId}`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -172,7 +172,7 @@ document.getElementById("saveProfile").addEventListener("click", async (event) =
     console.log("🔹 Sending Data to Server:", JSON.stringify(user)); // 👉 Debugging
 
     try {
-        const response = await fetch("http://localhost:5000/api/profile", {
+        const response = await fetch("https://jobportalapi-0gfs.onrender.com/api/profile", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -31,9 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(userData)
             });
-
             const result = await response.json();
-
             if (response.ok) {
                 showSuccessMessage('jobSearchMessage', '✅ Signup successful! Redirecting to login...');
                 window.location.href = "login.html";

@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // ✅ Fetch Job Details
-        const response = await fetch(`http://localhost:5000/api/jobs/${jobId}`);
+        const response = await fetch(`https://jobportalapi-0gfs.onrender.com/api/jobs/${jobId}`);
         if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
         const job = await response.json();
 
@@ -63,67 +63,58 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         jobDetailsContainer.innerHTML = `
- <div class="relative max-w-4xl mx-auto bg-white shadow-lg rounded-2xl p-6 sm:p-8 border border-gray-200">
+<div class="relative max-w-4xl mx-auto bg-white shadow-lg rounded-2xl p-6 sm:p-8 border border-gray-200">
     
     <!-- ✅ Top Left More Options Button -->
     <div class="absolute top-4 left-4">
-        <button id="moreOptionsButton" class="p-2 sm:p-1 text-black bg-gray-100 rounded-full shadow-md text-sm">
+        <button id="moreOptionsButton" class="p-2 sm:p-1 text-gray-700 bg-gray-100 rounded-full shadow-md text-sm hover:bg-gray-200">
             <i class="fa fa-ellipsis-v"></i>
         </button>
     </div>
 
     <!-- ✅ Top Right Save Job Button -->
     <div class="absolute top-4 right-4">
-        <button id="saveJobButton" class="p-2 sm:p-1 text-gray-600 bg-gray-100 rounded-full shadow-md text-sm">
+        <button id="saveJobButton" class="p-2 sm:p-1 text-gray-600 bg-gray-100 rounded-full shadow-md text-sm hover:bg-gray-200">
             <i class="fa fa-bookmark"></i>
         </button>
     </div>
 
     <!-- ✅ Job Title -->
-    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center sm:text-left">
+    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">
         ${job.jobTitle}
     </h2>
 
-    <!-- ✅ Job Details (Grid Layout) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <p class="flex items-center text-gray-700 text-base sm:text-lg">
-            ${companyIcon} <span class="font-medium ml-2">Company:</span> ${job.companyName}
-        </p>
-        <p class="flex items-center text-gray-700 text-base sm:text-lg">
-            ${locationIcon} <span class="font-medium ml-2">Location:</span> ${job.location}
-        </p>
-        <p class="flex items-center text-gray-700 text-base sm:text-lg">
-            ${categoryIcon} <span class="font-medium ml-2">Category:</span> ${job.category}
-        </p>
-        <p class="flex items-center text-gray-700 text-base sm:text-lg">
-            ${salaryIcon} <span class="font-medium ml-2">Salary:</span> ${job.salary}
-        </p>
+    <!-- ✅ Job Details Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 text-base sm:text-lg">
+        <p class="flex items-center"><i class="fa fa-building text-blue-600 mr-2"></i> <strong>Company:</strong> ${job.companyName}</p>
+        <p class="flex items-center"><i class="fa fa-map-marker-alt text-blue-600 mr-2"></i> <strong>Location:</strong> ${job.location}</p>
+        <p class="flex items-center"><i class="fa fa-briefcase text-blue-600 mr-2"></i> <strong>Category:</strong> ${job.category}</p>
+        <p class="flex items-center"><i class="fa fa-dollar-sign text-blue-600 mr-2"></i> <strong>Salary:</strong> ${job.salary}</p>
     </div>
 
     <!-- ✅ Job Description -->
-    <p class="text-gray-600 text-base sm:text-lg mt-4 leading-relaxed">
-        <span class="font-medium">${descriptionIcon} Description:</span> ${job.description}
+    <p class="text-gray-600 text-base sm:text-lg mt-6 leading-relaxed">
+        <i class="fa fa-file-alt text-blue-600 mr-2"></i> <strong>Description:</strong> ${job.description}
     </p>
 
     <!-- ✅ Posted Date -->
     <p class="text-gray-500 text-sm mt-4">
-        <span class="font-medium">${calendarIcon} Posted On:</span> ${formattedDate}
+        <i class="fa fa-calendar-alt text-blue-600 mr-2"></i> <strong>Posted On:</strong> ${formattedDate}
     </p>
 
     <!-- ✅ Action Buttons -->
-    <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <button id="applyButton" class="w-full px-4 py-2 text-sm sm:text-base font-semibold text-white bg-blue-600 rounded-md shadow-md flex items-center justify-center gap-2">
-            ${applyIcon} Apply Now
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <button id="applyButton" class="w-full px-4 py-2 text-sm sm:text-base font-semibold text-white bg-blue-600 rounded-md shadow-md flex items-center justify-center gap-2 hover:bg-blue-700">
+            <i class="fa fa-paper-plane"></i> Apply Now
         </button>
-        <button id="saveJobButton1" class="w-full px-4 py-2 text-sm sm:text-base font-semibold text-white bg-blue-600 rounded-md shadow-md flex items-center justify-center gap-2">
-            ${applyIcon} Save Job
+        <button id="saveJobButton1" class="w-full px-4 py-2 text-sm sm:text-base font-semibold text-black bg-gray-600 rounded-md shadow-md flex items-center justify-center gap-2 hover:bg-gray-700">
+            <i class="fa fa-bookmark"></i> Save Job
         </button>
-        <a href="jobs.html" class="w-full px-4 py-2 text-sm sm:text-base font-semibold text-blue-600 border border-blue-600 rounded-md shadow-md flex items-center justify-center gap-2">
-            ${backIcon} Back to Jobs
+        <a href="jobs.html" class="w-full px-4 py-2 text-sm sm:text-base font-semibold text-blue-600 border border-blue-600 rounded-md shadow-md flex items-center justify-center gap-2 hover:bg-blue-100">
+            <i class="fa fa-arrow-left"></i> Back to Jobs
         </a>
     </div>
 </div>
-
 `;
     // ✅ Apply Button Smooth Animation
     document.getElementById("applyButton").addEventListener("click", function () {
@@ -149,7 +140,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         
             try {
-                const response = await fetch("http://localhost:5000/api/applied-jobs", {
+                const response = await fetch("https://jobportalapi-0gfs.onrender.com/api/applied-jobs", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -182,7 +173,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById("applyButton").addEventListener("click", applyForJob);
 
         // ✅ Fetch Related Jobs
-        const relatedResponse = await fetch('http://localhost:5000/api/jobs');
+        const relatedResponse = await fetch('https://jobportalapi-0gfs.onrender.com/api/jobs');
         const allJobs = await relatedResponse.json();
         const relatedJobs = allJobs.filter(j => j._id !== jobId).slice(0, 4);
 

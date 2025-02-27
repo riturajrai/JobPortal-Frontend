@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const categoryContainer = document.getElementById("jobCategoryContainer");
     const toggleMenu = document.getElementById("jobToggleMenu");
 
-    const API_URL = "http://localhost:5000/api/jobs"; // ✅ Fixed API URL
+    const API_URL = "https://jobportalapi-0gfs.onrender.com/api/jobs"; // ✅ Fixed API URL
 
     const categories = [
         "Software Development", "Marketing", "Web Developer",
@@ -77,52 +77,56 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const jobElement = document.createElement("div");
                 jobElement.classList.add(
                     "job-card-item", "bg-white", "shadow-md", "rounded-2xl", "p-5",
-                    "transition-all", "hover:shadow-2xl", "hover:-translate-y-1", "border", "border-gray-200"
+                    "transition-all", "hover:shadow-2xl", "hover:-translate-y-1", "border", "border-gray-200",
+                   
                 );
+            
                 jobList.classList.add("grid", "grid-cols-1", "sm:grid-cols-2", "lg:grid-cols-3", "gap-6");
-
+            
                 jobElement.innerHTML = `
-                   <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 job-title">
-    ${job.jobTitle}
-</h3>
-
-<p class="flex items-center text-gray-600 mb-2 company-name text-sm sm:text-base">
-    <i class="fa fa-building text-blue-600"></i> 
-    <span class="font-medium ml-2">Company:</span> ${job.companyName}
-</p>
-
-<p class="flex items-center text-gray-600 mb-2 job-location text-sm sm:text-base">
-    <i class="fa fa-map-marker-alt text-blue-600"></i> 
-    <span class="font-medium ml-2">Location:</span> ${job.location}
-</p>
-
-<p class="flex items-center text-gray-600 mb-2 job-category text-sm sm:text-base">
-    <i class="fa fa-briefcase text-blue-600"></i> 
-    <span class="font-medium ml-2">Category:</span> ${job.category}
-</p>
-
-<p class="flex items-center text-gray-600 mb-4 job-salary text-sm sm:text-base">
-    <i class="fa fa-dollar-sign text-blue-600"></i> 
-    <span class="font-medium ml-2">Salary:</span> ${job.salary}
-</p>
-
-<!-- View Details Button -->
-<button class="job-view-details flex items-center gap-2 bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 
-    rounded-full font-medium transition-all shadow-md transform hover:scale-105"
-    data-id="${job._id}">
-    <i class="fa fa-eye text-white"></i> View Details
-</button>
-
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 job-title text-center">
+                        ${job.jobTitle}
+                    </h3>
+            
+                    <p class="flex items-center text-gray-700 mb-2 company-name text-sm sm:text-base">
+                        <i class="fa fa-building text-blue-600"></i> 
+                        <span class="font-medium ml-2">Company:</span> ${job.companyName}
+                    </p>
+            
+                    <p class="flex items-center text-gray-700 mb-2 job-location text-sm sm:text-base">
+                        <i class="fa fa-map-marker-alt text-blue-600"></i> 
+                        <span class="font-medium ml-2">Location:</span> ${job.location}
+                    </p>
+            
+                    <p class="flex items-center text-gray-700 mb-2 job-category text-sm sm:text-base">
+                        <i class="fa fa-briefcase text-blue-600"></i> 
+                        <span class="font-medium ml-2">Category:</span> ${job.category}
+                    </p>
+            
+                    <p class="flex items-center text-gray-700 mb-4 job-salary text-sm sm:text-base">
+                        <i class="fa fa-dollar-sign text-blue-600"></i> 
+                        <span class="font-medium ml-2">Salary:</span> ${job.salary}
+                    </p>
+            
+                   <p class="inline-block ml-20 px-3 py-1 text-sm font-medium text-white rounded-full bg-green-600">
+            ${job.jobtype}
+        </p>
+            
+                    <!-- View Details Button -->
+                    <button class="job-view-details flex items-center justify-center gap-2 bg-blue-600 text-white 
+                        px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all shadow-md 
+                        transform hover:scale-110 hover:bg-blue-700 focus:ring-2 focus:ring-blue-300 mt-4 w-full"
+                        data-id="${job._id}">
+                        <i class="fa fa-eye text-white"></i> View Details
+                    </button>
                 `;
-
-                // ✅ Add event listener for View Details button **inside** the loop
+            
                 jobElement.querySelector(".job-view-details").addEventListener("click", function () {
                     window.location.href = `job-details.html?id=${this.getAttribute("data-id")}`;
                 });
-
+            
                 jobList.appendChild(jobElement);
             });
-
         } catch (error) {
             console.error("❌ Error Fetching Jobs:", error);
             showErrorMessage('jobSearchMessage', '⚠️ Failed to load jobs. Please try again later.');
